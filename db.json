@@ -1,0 +1,156 @@
+{
+  "artists": [
+    {
+      "id": 1,
+      "name": "Alvan Kimani",
+      "bio": "A contemporary painter inspired by nature, culture and everyday life.",
+      "location": "Nairobi, Kenya",
+      "profileImage": "/images/artists/artist1.jpg",
+      "specialty": "Abstract Painting"
+    },
+    {
+      "id": 2,
+      "name": "Lucia Caminos",
+      "bio": "Blending classical techniques with bold, layered acrylics to capture emotion and everyday beauty.",
+      "location": "Nakuru, Kenya",
+      "profileImage": "/images/artists/artist2.jpg",
+      "specialty": "Traditional and Arcylic painting"
+    },
+    {
+      "id": 3,
+      "name": "Yvonne Muriuki",
+      "bio": "An artist creating minimalist and modern pieces for contemporary spaces.",
+      "location": "Kiambu, Kenya",
+      "profileImage": "/images/artists/artist3.jpg",
+      "specialty": "Minimalist and Textured Art"
+    }
+  ],
+  "artworks": [
+    {
+      "id": 1,
+      "title": "The Glass Archipelago",
+      "description": "An abstract representation of peaceful landscapes and distant horizons.",
+      "artistId": 1,
+      "price": 82300,
+      "currency": "KES",
+      "image": "/images/artworks/artwork1.jpg",
+      "category": "Abstract",
+      "dimensions": "60 x 80 cm",
+      "available": true
+    },
+    {
+      "id": 2,
+      "title": "Concrete Bloom",
+      "description": "A brutalist concrete monolith cracked down the middle, with delicate, hyper-realistic porcelain orchids growing out of the fissures.",
+      "artistId": 2,
+      "price": 17900,
+      "currency": "KES",
+      "image": "/images/artworks/artwork2.jpg",
+      "category": "Abstract",
+      "dimensions": "60 x 80 cm",
+      "available": false
+    },
+    {
+      "id": 3,
+      "title": "Static in the Static",
+      "description": "A large-scale mixed-media collage constructed entirely from shredded vintage newspapers, old cassette tape ribbons, and gold leaf.",
+      "artistId": 3,
+      "price": 9900,
+      "currency": "KES",
+      "image": "/images/artworks/artwork3.jpg",
+      "category": "Abstract",
+      "dimensions": "60 x 80 cm",
+      "available": true
+    },
+    {
+      "id": 4,
+      "title": "Digital Reliquary",
+      "description": "A woven tapestry made from salvaged fishing nets, driftwood, and dyed merino wool, charting the coastline of a disappearing island.",
+      "artistId": 1,
+      "price": 5500,
+      "currency": "KES",
+      "image": "/images/artworks/artwork4.jpg",
+      "category": "Abstract",
+      "dimensions": "60 x 80 cm",
+      "available": true
+    },
+    {
+      "id": 5,
+      "title": "The Weight of Shadows",
+      "description": "A large-scale mixed-media collage constructed entirely from shredded vintage newspapers, old cassette tape ribbons, and gold leaf.",
+      "artistId": 2,
+      "price": 19500,
+      "currency": "KES",
+      "image": "/images/artworks/artwork5.jpg",
+      "category": "Abstract",
+      "dimensions": "60 x 80 cm",
+      "available": true
+    },
+    {
+      "id": 6,
+      "title": "Chromatic Echoes",
+      "description": "A kinetic light installation featuring rotating prism lenses that project shifting, overlapping rainbows across a dark, mirrored room",
+      "artistId": 3,
+      "price": 9500,
+      "currency": "KES",
+      "image": "/images/artworks/artwork6.jpg",
+      "category": "Abstract",
+      "dimensions": "60 x 80 cm",
+      "available": true
+    },
+    {
+      "id": 7,
+      "title": "Rust and Velvet",
+      "description": "A heavily textured impasto painting combining oxidized iron paint and deep crimson pigment to evoke the decaying interior of an abandoned theater.",
+      "artistId": 1,
+      "price": 17500,
+      "currency": "KES",
+      "image": "/images/artworks/artwork7.jpg",
+      "category": "Abstract",
+      "dimensions": "60 x 80 cm",
+      "available": true
+    },
+    {
+      "id": 8,
+      "title": "Suburban Mirage",
+      "description": "A surrealist acrylic piece showing a row of identical mid-century houses melting seamlessly into a vast, sunlit desert landscape",
+      "artistId": 2,
+      "price": 11100,
+      "currency": "KES",
+      "image": "/images/artworks/artwork8.jpg",
+      "category": "Abstract",
+      "dimensions": "60 x 80 cm",
+      "available": true
+    },
+    {
+      "id": 9,
+      "title": "The Spotlight",
+      "description": "A minimalist bronze cast of an empty rocking chair tilted slightly backward as if someone just stood up.",
+      "artistId": 3,
+      "price": 20500,
+      "currency": "KES",
+      "image": "/images/artworks/artwork9.jpg",
+      "category": "Minimal",
+      "dimensions": "60 x 80 cm",
+      "available": true
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "customerName": "Brian Otieno",
+      "customerEmail": "brian@example.com",
+      "artworkId": 1,
+      "quantity": 1,
+      "totalAmount": 18500,
+      "orderDate": "2026-07-12"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "customerName": "Brian Otieno",
+      "comment": "Beautiful artwork. The colours and details are amazing."
+    }
+  ]
+}
