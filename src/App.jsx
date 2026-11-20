@@ -11,7 +11,7 @@ import ArtworkDetail from './pages/ArtworkDetail'
 export default function App() {
   
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-art-galore">
       <CartProvider>
 
         <NavBar />

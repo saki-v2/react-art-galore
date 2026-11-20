@@ -5,7 +5,7 @@
       "name": "Alvan Kimani",
       "bio": "A contemporary painter inspired by nature, culture and everyday life.",
       "location": "Nairobi, Kenya",
-      "profileImage": "/images/artists/artist1.jpg",
+      "profileImage": "/react-art-galore/images/artists/artist1.jpg",
       "specialty": "Abstract Painting"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Lucia Caminos",
       "bio": "Blending classical techniques with bold, layered acrylics to capture emotion and everyday beauty.",
       "location": "Nakuru, Kenya",
-      "profileImage": "/images/artists/artist2.jpg",
+      "profileImage": "/react-art-galore/images/artists/artist2.jpg",
       "specialty": "Traditional and Arcylic painting"
     },
     {
@@ -21,7 +21,7 @@
       "name": "Yvonne Muriuki",
       "bio": "An artist creating minimalist and modern pieces for contemporary spaces.",
       "location": "Kiambu, Kenya",
-      "profileImage": "/images/artists/artist3.jpg",
+      "profileImage": "/react-art-galore/images/artists/artist3.jpg",
       "specialty": "Minimalist and Textured Art"
     }
   ],
@@ -33,7 +33,7 @@
       "artistId": 1,
       "price": 82300,
       "currency": "KES",
-      "image": "/images/artworks/artwork1.jpg",
+      "image": "/react-art-galore/images/artworks/artwork7.jpg",
       "category": "Abstract",
       "dimensions": "60 x 80 cm",
       "available": true
@@ -45,7 +45,7 @@
       "artistId": 2,
       "price": 17900,
       "currency": "KES",
-      "image": "/images/artworks/artwork2.jpg",
+      "image": "/react-art-galore/images/artworks/artwork2.jpg",
       "category": "Abstract",
       "dimensions": "60 x 80 cm",
       "available": false
@@ -57,7 +57,7 @@
       "artistId": 3,
       "price": 9900,
       "currency": "KES",
-      "image": "/images/artworks/artwork3.jpg",
+      "image": "/react-art-galore/images/artworks/artwork3.jpg",
       "category": "Abstract",
       "dimensions": "60 x 80 cm",
       "available": true
@@ -69,7 +69,7 @@
       "artistId": 1,
       "price": 5500,
       "currency": "KES",
-      "image": "/images/artworks/artwork4.jpg",
+      "image": "/react-art-galore/images/artworks/artwork4.jpg",
       "category": "Abstract",
       "dimensions": "60 x 80 cm",
       "available": true
@@ -81,7 +81,7 @@
       "artistId": 2,
       "price": 19500,
       "currency": "KES",
-      "image": "/images/artworks/artwork5.jpg",
+      "image": "/react-art-galore/images/artworks/artwork5.jpg",
       "category": "Abstract",
       "dimensions": "60 x 80 cm",
       "available": true
@@ -93,7 +93,7 @@
       "artistId": 3,
       "price": 9500,
       "currency": "KES",
-      "image": "/images/artworks/artwork6.jpg",
+      "image": "/react-art-galore/images/artworks/artwork6.jpg",
       "category": "Abstract",
       "dimensions": "60 x 80 cm",
       "available": true
@@ -105,7 +105,7 @@
       "artistId": 1,
       "price": 17500,
       "currency": "KES",
-      "image": "/images/artworks/artwork7.jpg",
+      "image": "/react-art-galore/images/artworks/artwork7.jpg",
       "category": "Abstract",
       "dimensions": "60 x 80 cm",
       "available": true
@@ -117,7 +117,7 @@
       "artistId": 2,
       "price": 11100,
       "currency": "KES",
-      "image": "/images/artworks/artwork8.jpg",
+      "image": "/react-art-galore/images/artworks/artwork8.jpg",
       "category": "Abstract",
       "dimensions": "60 x 80 cm",
       "available": true
@@ -129,7 +129,7 @@
       "artistId": 3,
       "price": 20500,
       "currency": "KES",
-      "image": "/images/artworks/artwork9.jpg",
+      "image": "/react-art-galore/images/artworks/artwork9.jpg",
       "category": "Minimal",
       "dimensions": "60 x 80 cm",
       "available": true
