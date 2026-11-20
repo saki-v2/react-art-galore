@@ -1,70 +1,39 @@
-import { useState, useEffect, useContext } from "react"
-import { useParams, useNavigate } from "react-router-dom"
-import { CartContext } from "../context/CartContext"
-import ReviewForm from "../components/ReviewForm"
+import { useEffect, useState } from "react";
 
-export default function ArtworkDetail() {
-    const { id } = useParams()
-    const navigate = useNavigate()
-    const { cart, addToCart } = useContext(CartContext)
+export default function ArtistCard() {
 
-    const [artwork, setArtwork] = useState(null)
-    const [artist, setArtist] = useState(null)
-    const [error, setError] = useState("")
+    const [artists, setArtists] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3001/artworks/${id}`)
+        fetch("http://localhost:3001/artists")
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error("Artwork not found")
+                    throw new Error("Could not load the artists")
                 }
                 return response.json()
             })
-            .then((artworkData) => {
-                setArtwork(artworkData)
-                return fetch(`http://localhost:3001/artists/${artworkData.artistId}`)
-            })
-            .then((response) => response.json())
-            .then((artistData) => setArtist(artistData))
-            .catch((error) => setError(error.message))
-    }, [id])
-
-    if (error) return <p className="detail-message">{error}</p>
-    if (!artwork) return <p className="detail-message">Loading...</p>
-
-    const inCart = cart.some((item) => item.id === artwork.id)
+            .then((data) => setArtists(data))
+            .catch((error) => console.error("Failed to load:", error))
+    }, [])
 
     return (
-        <section className="artwork-details">
-            <button type="button" className="back-btn" onClick={() => navigate("/shop")}>
-                <i className="bi bi-arrow-left-short"></i> Back to Shop
-            </button>
+        <section className="artist" id="artist">
+            <h3>THE TEAM BEHIND THE MAGIC</h3>
+            <h2>MEET YOUR NEXT FAVOURITE ARTIST</h2>
+            <div className="artist-card" id="artist-card">
+                {artists.map((artist) => (
+                    <div key={artist.id} className="card card-row" style={{ maxWidth: "540px" }}>
+                        <img src={artist.profileImage} className="card-img-start" alt={artist.name} />
 
-            <div className="details-layout">
-                <img src={artwork.image} alt={artwork.title} className="details-img" />
-
-                <div className="details-info">
-                    <p className="details-category">{artwork.category}</p>
-                    <h2>{artwork.title}</h2>
-                    <p className="details-artist">By {artist?.name}</p>
-                    <p className="details-price">
-                        {artwork.currency} {artwork.price.toLocaleString()}
-                    </p>
-                    <p className="details-description">{artwork.description}</p>
-                    <p className="details-size">Size: {artwork.dimensions}</p>
-
-                    <button
-                        type="button"
-                        className="add-to-cart"
-                        disabled={!artwork.available || inCart}
-                        onClick={() => addToCart(artwork)}
-                    >
-                        {!artwork.available ? "Sold out" : inCart ? "In cart" : "Add to cart"}
-                    </button>
-                </div>
+                        <div className="card-body">
+                            <h4 className="card-title">{artist.name}</h4>
+                            <p className="card-text">{artist.bio}</p>
+                            <p className="card-text">{artist.location}</p>
+                            <p className="card-text">{artist.specialty}</p>
+                        </div>
+                    </div>
+                ))}
             </div>
-
-            <ReviewForm artworkId={id} />
         </section>
     )
 }

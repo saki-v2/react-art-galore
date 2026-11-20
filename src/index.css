@@ -695,7 +695,7 @@ html {
 .reviews-list {
     display: grid;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .review-card {

@@ -60,8 +60,7 @@ export default function Shop(){
                         return (
                             <article key={artwork.id}
                             className="card" 
-                            onClick={() => navigate('/artwork/${artwork.id}')}
-                            >
+                            onClick={() => navigate(`/artwork/${artwork.id}`)}                              >
                                 <img src={artwork.image} className="card-img-top" alt={artwork.title}/>
                                 <div className="card-body">
                                     <h4 className="card-title">{artwork.title}</h4>

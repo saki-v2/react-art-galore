@@ -29,7 +29,9 @@ export default function NavBar (){
                 </ul>
             </nav>
 
-            <button type="button" className="cart-btn">
+            <button type="button" className="cart-btn"
+            onClick={()  => navigate("/Shop")}
+            >
                 <i className="bi bi-cart" aria-hidden="true"></i> Cart / {cart.length}
             </button>
             

@@ -1,96 +1,63 @@
 import { useState, useEffect } from "react"
 
-const API_URL = "http://localhost:3001/reviews"
-
 export default function ReviewForm({ artworkId }) {
     const [reviews, setReviews] = useState([])
     const [name, setName] = useState("")
     const [comment, setComment] = useState("")
-    const [submitting, setSubmitting] = useState(false)
     const [status, setStatus] = useState("")
 
     useEffect(() => {
-        fetch(API_URL)
-            .then((res) => res.json())
-            .then((data) =>
-                setReviews(
-                    data.filter(
-                        (r) => !artworkId || String(r.artworkId) === String(artworkId)
-                    )
-                )
-            )
+        fetch("http://localhost:3001/reviews")
+            .then((response) => response.json())
+            .then((data) => {
+                if (artworkId) {
+                    setReviews(data.filter((review) => String(review.artworkId) === String(artworkId)))
+                } else {
+                    setReviews(data)
+                }
+            })
             .catch((error) => console.error("Failed to load reviews:", error))
     }, [artworkId])
 
-    const handleSubmit = async (e) => {
+    function handleSubmit(e) {
         e.preventDefault()
 
-        if (!name.trim() || !comment.trim()) {
-            setStatus("Please enter both your name and a comment.")
-            return
-        }
-
-        setSubmitting(true)
-        setStatus("")
-
         const newReview = {
-            customerName: name.trim(),
+            customerName: name,
             artworkId: artworkId ? Number(artworkId) : null,
-            comment: comment.trim(),
-            reviewDate: new Date().toISOString().split("T")[0],
+            comment: comment,
         }
 
-        try {
-            const res = await fetch(API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newReview),
+        fetch("http://localhost:3001/reviews", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newReview),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Could not save the review")
+                }
+                return response.json()
             })
-
-            if (!res.ok) throw new Error(`Server responded with ${res.status}`)
-
-            const saved = await res.json()
-
-
-            setReviews((prev) => [...prev, saved])
-            setName("")
-            setComment("")
-            setStatus("Thank you! Your review has been submitted.")
-        } catch (error) {
-            console.error("Failed to save review:", error)
-            setStatus("Could not save your review. Is the server running?")
-        } finally {
-            setSubmitting(false)
-        }
+            .then((savedReview) => {
+                setReviews([...reviews, savedReview])
+                setName("")
+                setComment("")
+                setStatus("Thank you! Your review has been submitted.")
+            })
+            .catch((error) => {
+                console.error(error)
+                setStatus("Could not save your review. Is the server running?")
+            })
     }
 
     return (
-        <section className="review-form-section">
+        <section className="review-form-section" id="reviews">
             <h3>Customer Reviews</h3>
-
-            <div className="reviews-list">
-                {reviews.length === 0 ? (
-                    <p className="no-reviews">No reviews yet. Be the first to review!</p>
-                ) : (
-                    reviews.map((review) => (
-                        <div key={review.id} className="review-card">
-                            <p className="review-name">
-                                <strong>{review.customerName}</strong>
-                            </p>
-                            <p className="review-comment">{review.comment}</p>
-                            {review.reviewDate && (
-                                <small className="review-date">{review.reviewDate}</small>
-                            )}
-                        </div>
-                    ))
-                )}
-            </div>
 
             <form onSubmit={handleSubmit} className="review-form">
                 <div className="mb-3">
-                    <label htmlFor="reviewName" className="form-label">
-                        Name
-                    </label>
+                    <label htmlFor="reviewName" className="form-label">Name</label>
                     <input
                         type="text"
                         id="reviewName"
@@ -103,9 +70,7 @@ export default function ReviewForm({ artworkId }) {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="reviewComment" className="form-label">
-                        Comment
-                    </label>
+                    <label htmlFor="reviewComment" className="form-label">Comment</label>
                     <textarea
                         id="reviewComment"
                         className="form-control"
@@ -117,12 +82,23 @@ export default function ReviewForm({ artworkId }) {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-dark" disabled={submitting}>
-                    {submitting ? "Submitting..." : "Submit Review"}
-                </button>
+                <button type="submit" className="btn btn-dark">Submit Review</button>
 
                 {status && <p className="review-status mt-2">{status}</p>}
             </form>
+
+            <div className="reviews-list">
+                {reviews.length === 0 ? (
+                    <p className="no-reviews">No reviews yet. Be the first to review!</p>
+                ) : (
+                    reviews.map((review) => (
+                        <div key={review.id} className="review-card">
+                            <p className="review-name"><strong>{review.customerName}</strong></p>
+                            <p className="review-comment">{review.comment}</p>
+                        </div>
+                    ))
+                )}
+            </div>
         </section>
     )
 }
